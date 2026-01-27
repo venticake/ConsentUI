@@ -17,13 +17,13 @@ iOS/Android 모바일 앱용 유저 동의 UI 라이브러리. EEA 지역에서 
 `Package.swift`:
 ```swift
 dependencies: [
-    .package(url: "https://github.com/user/ConsentUI.git", from: "1.0.0")
+    .package(url: "https://github.com/venticake/ConsentUI.git", from: "1.0.0")
 ]
 ```
 
 또는 Xcode에서:
 1. File > Add Packages...
-2. URL 입력: `https://github.com/user/ConsentUI`
+2. URL 입력: `https://github.com/venticake/ConsentUI`
 
 ### Android (JitPack)
 
@@ -39,7 +39,7 @@ dependencyResolutionManagement {
 `build.gradle.kts`:
 ```kotlin
 dependencies {
-    implementation("com.github.user:ConsentUI:1.0.0")
+    implementation("com.github.venticake:ConsentUI:1.0.0")
 }
 ```
 
