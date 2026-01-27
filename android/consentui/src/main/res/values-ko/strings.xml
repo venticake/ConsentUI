@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="consent_title">경험 개선에 도움을 주세요</string>
+    <string name="consent_message">앱 사용 분석 및 서비스 개선을 위해 기기 식별자를 사용하고자 합니다.</string>
+    <string name="consent_allow">허용</string>
+    <string name="consent_decline">나중에</string>
+</resources>

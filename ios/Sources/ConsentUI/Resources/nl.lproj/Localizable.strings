@@ -1,0 +1,6 @@
+/* ConsentUI Localized Strings - nl */
+
+"consent_title" = "Help uw ervaring te verbeteren";
+"consent_message" = "We willen uw apparaat-ID gebruiken om het app-gebruik te analyseren en onze diensten te verbeteren.";
+"consent_allow" = "Toestaan";
+"consent_decline" = "Niet nu";

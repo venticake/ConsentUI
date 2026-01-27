@@ -1,0 +1,74 @@
+{
+  "en": {
+    "title": "Help Improve Your Experience",
+    "message": "We'd like to use your device identifier to analyze app usage and improve our services.",
+    "allow": "Allow",
+    "decline": "Not Now"
+  },
+  "ko": {
+    "title": "경험 개선에 도움을 주세요",
+    "message": "앱 사용 분석 및 서비스 개선을 위해 기기 식별자를 사용하고자 합니다.",
+    "allow": "허용",
+    "decline": "나중에"
+  },
+  "de": {
+    "title": "Helfen Sie uns, Ihr Erlebnis zu verbessern",
+    "message": "Wir möchten Ihre Gerätekennung verwenden, um die App-Nutzung zu analysieren und unsere Dienste zu verbessern.",
+    "allow": "Erlauben",
+    "decline": "Nicht jetzt"
+  },
+  "fr": {
+    "title": "Aidez-nous à améliorer votre expérience",
+    "message": "Nous souhaitons utiliser l'identifiant de votre appareil pour analyser l'utilisation de l'application et améliorer nos services.",
+    "allow": "Autoriser",
+    "decline": "Pas maintenant"
+  },
+  "es": {
+    "title": "Ayúdanos a mejorar tu experiencia",
+    "message": "Nos gustaría usar el identificador de tu dispositivo para analizar el uso de la aplicación y mejorar nuestros servicios.",
+    "allow": "Permitir",
+    "decline": "Ahora no"
+  },
+  "it": {
+    "title": "Aiutaci a migliorare la tua esperienza",
+    "message": "Vorremmo utilizzare l'identificatore del tuo dispositivo per analizzare l'utilizzo dell'app e migliorare i nostri servizi.",
+    "allow": "Consenti",
+    "decline": "Non ora"
+  },
+  "ja": {
+    "title": "体験の向上にご協力ください",
+    "message": "アプリの利用状況を分析しサービスを改善するため、デバイス識別子の使用を許可してください。",
+    "allow": "許可",
+    "decline": "後で"
+  },
+  "zh-Hans": {
+    "title": "帮助我们改善您的体验",
+    "message": "我们希望使用您的设备标识符来分析应用使用情况并改进我们的服务。",
+    "allow": "允许",
+    "decline": "暂不"
+  },
+  "pt": {
+    "title": "Ajude a melhorar sua experiência",
+    "message": "Gostaríamos de usar o identificador do seu dispositivo para analisar o uso do aplicativo e melhorar nossos serviços.",
+    "allow": "Permitir",
+    "decline": "Agora não"
+  },
+  "nl": {
+    "title": "Help uw ervaring te verbeteren",
+    "message": "We willen uw apparaat-ID gebruiken om het app-gebruik te analyseren en onze diensten te verbeteren.",
+    "allow": "Toestaan",
+    "decline": "Niet nu"
+  },
+  "pl": {
+    "title": "Pomóż nam ulepszyć Twoje doświadczenie",
+    "message": "Chcielibyśmy użyć identyfikatora Twojego urządzenia, aby analizować użycie aplikacji i ulepszać nasze usługi.",
+    "allow": "Zezwól",
+    "decline": "Nie teraz"
+  },
+  "sv": {
+    "title": "Hjälp oss förbättra din upplevelse",
+    "message": "Vi vill använda din enhetsidentifierare för att analysera appanvändning och förbättra våra tjänster.",
+    "allow": "Tillåt",
+    "decline": "Inte nu"
+  }
+}

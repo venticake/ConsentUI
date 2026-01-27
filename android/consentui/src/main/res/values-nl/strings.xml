@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="consent_title">Help uw ervaring te verbeteren</string>
+    <string name="consent_message">We willen uw apparaat-ID gebruiken om het app-gebruik te analyseren en onze diensten te verbeteren.</string>
+    <string name="consent_allow">Toestaan</string>
+    <string name="consent_decline">Niet nu</string>
+</resources>

@@ -1,0 +1,36 @@
+name: ExampleUIKit
+options:
+  bundleIdPrefix: com.consentui
+  deploymentTarget:
+    iOS: "13.0"
+
+packages:
+  ConsentUI:
+    path: ../../..
+
+targets:
+  ExampleUIKit:
+    type: application
+    platform: iOS
+    sources:
+      - ExampleUIKit
+    dependencies:
+      - package: ConsentUI
+        product: ConsentUI
+    settings:
+      base:
+        INFOPLIST_FILE: ExampleUIKit/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.consentui.example.uikit
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+    info:
+      path: ExampleUIKit/Info.plist
+      properties:
+        UILaunchScreen: {}
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+          UISceneConfigurations:
+            UIWindowSceneSessionRoleApplication:
+              - UISceneConfigurationName: Default Configuration
+                UISceneDelegateClassName: $(PRODUCT_MODULE_NAME).SceneDelegate
+        NSUserTrackingUsageDescription: "We use this identifier to personalize ads and measure their effectiveness."

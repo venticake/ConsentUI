@@ -1,0 +1,30 @@
+name: ExampleSwiftUI
+options:
+  bundleIdPrefix: com.consentui
+  deploymentTarget:
+    iOS: "14.0"
+
+packages:
+  ConsentUI:
+    path: ../../..
+
+targets:
+  ExampleSwiftUI:
+    type: application
+    platform: iOS
+    sources:
+      - ExampleSwiftUI
+    dependencies:
+      - package: ConsentUI
+        product: ConsentUI
+    settings:
+      base:
+        INFOPLIST_FILE: ExampleSwiftUI/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.consentui.example.swiftui
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+    info:
+      path: ExampleSwiftUI/Info.plist
+      properties:
+        UILaunchScreen: {}
+        NSUserTrackingUsageDescription: "We use this identifier to personalize ads and measure their effectiveness."

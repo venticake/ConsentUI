@@ -1,0 +1,6 @@
+/* ConsentUI Localized Strings - ja */
+
+"consent_title" = "体験の向上にご協力ください";
+"consent_message" = "アプリの利用状況を分析しサービスを改善するため、デバイス識別子の使用を許可してください。";
+"consent_allow" = "許可";
+"consent_decline" = "後で";

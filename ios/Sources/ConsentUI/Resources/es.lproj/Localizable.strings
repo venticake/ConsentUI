@@ -1,0 +1,6 @@
+/* ConsentUI Localized Strings - es */
+
+"consent_title" = "Ayúdanos a mejorar tu experiencia";
+"consent_message" = "Nos gustaría usar el identificador de tu dispositivo para analizar el uso de la aplicación y mejorar nuestros servicios.";
+"consent_allow" = "Permitir";
+"consent_decline" = "Ahora no";

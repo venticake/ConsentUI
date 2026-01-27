@@ -1,0 +1,6 @@
+/* ConsentUI Localized Strings - en */
+
+"consent_title" = "Help Improve Your Experience";
+"consent_message" = "We'd like to use your device identifier to analyze app usage and improve our services.";
+"consent_allow" = "Allow";
+"consent_decline" = "Not Now";

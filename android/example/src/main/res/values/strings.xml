@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ConsentUI Example</string>
+    <string name="status_not_requested">Consent Status: Not requested</string>
+    <string name="status_accepted">Consent: Accepted</string>
+    <string name="status_declined">Consent: Declined</string>
+    <string name="status_not_required">Consent: Not Required (Not in EEA)</string>
+    <string name="request_consent">Request Consent</string>
+    <string name="request_if_needed">Request If Needed (EEA Check)</string>
+    <string name="open_compose_example">Open Compose Example</string>
+</resources>

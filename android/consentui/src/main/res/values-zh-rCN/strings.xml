@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="consent_title">帮助我们改善您的体验</string>
+    <string name="consent_message">我们希望使用您的设备标识符来分析应用使用情况并改进我们的服务。</string>
+    <string name="consent_allow">允许</string>
+    <string name="consent_decline">暂不</string>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="consent_title">Aiutaci a migliorare la tua esperienza</string>
+    <string name="consent_message">Vorremmo utilizzare l\'identificatore del tuo dispositivo per analizzare l\'utilizzo dell\'app e migliorare i nostri servizi.</string>
+    <string name="consent_allow">Consenti</string>
+    <string name="consent_decline">Non ora</string>
+</resources>

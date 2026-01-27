@@ -1,0 +1,6 @@
+/* ConsentUI Localized Strings - sv */
+
+"consent_title" = "Hjälp oss förbättra din upplevelse";
+"consent_message" = "Vi vill använda din enhetsidentifierare för att analysera appanvändning och förbättra våra tjänster.";
+"consent_allow" = "Tillåt";
+"consent_decline" = "Inte nu";

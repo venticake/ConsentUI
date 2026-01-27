@@ -1,0 +1,6 @@
+/* ConsentUI Localized Strings - zh-Hans */
+
+"consent_title" = "帮助我们改善您的体验";
+"consent_message" = "我们希望使用您的设备标识符来分析应用使用情况并改进我们的服务。";
+"consent_allow" = "允许";
+"consent_decline" = "暂不";
