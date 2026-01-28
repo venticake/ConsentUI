@@ -16,6 +16,7 @@ public final class ConsentManager {
 
     /// Request consent from the user
     /// Always shows the consent dialog regardless of region
+    /// For non-EEA users, returns .notRequired regardless of user's choice
     /// - Parameters:
     ///   - viewController: The view controller to present from
     ///   - completion: Callback with the consent result
@@ -23,16 +24,23 @@ public final class ConsentManager {
         from viewController: UIViewController,
         completion: @escaping (ConsentResult) -> Void
     ) {
+        let isEEA = regionChecker.isConsentRequired()
+
         ConsentDialog.show(from: viewController) { [weak self] accepted in
             guard let self = self else { return }
 
-            if accepted {
-                // User accepted, request ATT authorization
-                self.attManager.requestAuthorization { attStatus in
-                    completion(.accepted(attStatus: attStatus))
+            self.attManager.requestAuthorization { attStatus in
+                if isEEA {
+                    // EEA user: return based on their choice
+                    if accepted {
+                        completion(.accepted(attStatus: attStatus))
+                    } else {
+                        completion(.declined(attStatus: attStatus))
+                    }
+                } else {
+                    // Non-EEA user: always return notRequired
+                    completion(.notRequired(attStatus: attStatus))
                 }
-            } else {
-                completion(.declined)
             }
         }
     }
@@ -48,8 +56,10 @@ public final class ConsentManager {
         if regionChecker.isConsentRequired() {
             requestConsent(from: viewController, completion: completion)
         } else {
-            // Not in EEA, consent not required
-            completion(.notRequired)
+            // Not in EEA, consent dialog not required but still request ATT
+            attManager.requestAuthorization { attStatus in
+                completion(.notRequired(attStatus: attStatus))
+            }
         }
     }
 

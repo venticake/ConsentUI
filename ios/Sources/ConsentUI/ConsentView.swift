@@ -14,19 +14,32 @@ public struct ConsentView: View {
         self.onResult = onResult
     }
 
+    private func handleResponse(accepted: Bool) {
+        let isEEA = RegionChecker.shared.isConsentRequired()
+        ATTManager.shared.requestAuthorization { attStatus in
+            if isEEA {
+                if accepted {
+                    onResult(.accepted(attStatus: attStatus))
+                } else {
+                    onResult(.declined(attStatus: attStatus))
+                }
+            } else {
+                onResult(.notRequired(attStatus: attStatus))
+            }
+        }
+    }
+
     public var body: some View {
         if #available(iOS 15.0, *) {
             EmptyView()
                 .alert(ConsentStrings.title, isPresented: $isPresented) {
                     Button(ConsentStrings.allow) {
-                        ATTManager.shared.requestAuthorization { attStatus in
-                            onResult(.accepted(attStatus: attStatus))
-                        }
+                        handleResponse(accepted: true)
                     }
                     .keyboardShortcut(.defaultAction)
 
                     Button(ConsentStrings.decline, role: .cancel) {
-                        onResult(.declined)
+                        handleResponse(accepted: false)
                     }
                 } message: {
                     Text(ConsentStrings.message)
@@ -38,12 +51,10 @@ public struct ConsentView: View {
                         title: Text(ConsentStrings.title),
                         message: Text(ConsentStrings.message),
                         primaryButton: .default(Text(ConsentStrings.allow)) {
-                            ATTManager.shared.requestAuthorization { attStatus in
-                                onResult(.accepted(attStatus: attStatus))
-                            }
+                            handleResponse(accepted: true)
                         },
                         secondaryButton: .cancel(Text(ConsentStrings.decline)) {
-                            onResult(.declined)
+                            handleResponse(accepted: false)
                         }
                     )
                 }
@@ -57,19 +68,32 @@ public struct ConsentAlertModifier: ViewModifier {
     @Binding var isPresented: Bool
     let onResult: (ConsentResult) -> Void
 
+    private func handleResponse(accepted: Bool) {
+        let isEEA = RegionChecker.shared.isConsentRequired()
+        ATTManager.shared.requestAuthorization { attStatus in
+            if isEEA {
+                if accepted {
+                    onResult(.accepted(attStatus: attStatus))
+                } else {
+                    onResult(.declined(attStatus: attStatus))
+                }
+            } else {
+                onResult(.notRequired(attStatus: attStatus))
+            }
+        }
+    }
+
     public func body(content: Content) -> some View {
         if #available(iOS 15.0, *) {
             content
                 .alert(ConsentStrings.title, isPresented: $isPresented) {
                     Button(ConsentStrings.allow) {
-                        ATTManager.shared.requestAuthorization { attStatus in
-                            onResult(.accepted(attStatus: attStatus))
-                        }
+                        handleResponse(accepted: true)
                     }
                     .keyboardShortcut(.defaultAction)
 
                     Button(ConsentStrings.decline, role: .cancel) {
-                        onResult(.declined)
+                        handleResponse(accepted: false)
                     }
                 } message: {
                     Text(ConsentStrings.message)
@@ -81,12 +105,10 @@ public struct ConsentAlertModifier: ViewModifier {
                         title: Text(ConsentStrings.title),
                         message: Text(ConsentStrings.message),
                         primaryButton: .default(Text(ConsentStrings.allow)) {
-                            ATTManager.shared.requestAuthorization { attStatus in
-                                onResult(.accepted(attStatus: attStatus))
-                            }
+                            handleResponse(accepted: true)
                         },
                         secondaryButton: .cancel(Text(ConsentStrings.decline)) {
-                            onResult(.declined)
+                            handleResponse(accepted: false)
                         }
                     )
                 }
@@ -127,7 +149,10 @@ public final class ConsentState: ObservableObject {
         if RegionChecker.shared.isConsentRequired() {
             isPresented = true
         } else {
-            result = .notRequired
+            // Not in EEA, but still request ATT
+            ATTManager.shared.requestAuthorization { attStatus in
+                self.result = .notRequired(attStatus: attStatus)
+            }
         }
     }
 

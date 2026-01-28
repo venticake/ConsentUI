@@ -74,10 +74,18 @@ class ViewController: UIViewController {
                 statusText += "\nATT Status: \(attStatusDescription(att))"
             }
             statusLabel.text = statusText
-        case .declined:
-            statusLabel.text = "Consent: Declined"
-        case .notRequired:
-            statusLabel.text = "Consent: Not Required (Not in EEA)"
+        case .declined(let attStatus):
+            var statusText = "Consent: Declined"
+            if let att = attStatus {
+                statusText += "\nATT Status: \(attStatusDescription(att))"
+            }
+            statusLabel.text = statusText
+        case .notRequired(let attStatus):
+            var statusText = "Consent: Not Required (Not in EEA)"
+            if let att = attStatus {
+                statusText += "\nATT Status: \(attStatusDescription(att))"
+            }
+            statusLabel.text = statusText
         }
     }
 

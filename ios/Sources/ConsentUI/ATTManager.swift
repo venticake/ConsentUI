@@ -17,9 +17,13 @@ public final class ATTManager {
     public func requestAuthorization(completion: @escaping (ATTStatus) -> Void) {
         #if canImport(AppTrackingTransparency)
         if #available(iOS 14, *) {
-            ATTrackingManager.requestTrackingAuthorization { status in
-                DispatchQueue.main.async {
-                    completion(status.toATTStatus())
+            // ATT requires the app to be fully active before showing the dialog
+            // Adding a small delay ensures the UI is ready
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                ATTrackingManager.requestTrackingAuthorization { status in
+                    DispatchQueue.main.async {
+                        completion(status.toATTStatus())
+                    }
                 }
             }
         } else {

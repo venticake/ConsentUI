@@ -25,7 +25,7 @@ struct ContentView: View {
             consentState.result = result
         }
         .onReceive(consentState.$result) { result in
-            if let result = result, case .notRequired = result {
+            if let result = result, case .notRequired(_) = result {
                 updateStatus(result)
             }
         }
@@ -39,10 +39,18 @@ struct ContentView: View {
                 text += "\nATT Status: \(attStatusDescription(att))"
             }
             statusText = text
-        case .declined:
-            statusText = "Consent: Declined"
-        case .notRequired:
-            statusText = "Consent: Not Required (Not in EEA)"
+        case .declined(let attStatus):
+            var text = "Consent: Declined"
+            if let att = attStatus {
+                text += "\nATT Status: \(attStatusDescription(att))"
+            }
+            statusText = text
+        case .notRequired(let attStatus):
+            var text = "Consent: Not Required (Not in EEA)"
+            if let att = attStatus {
+                text += "\nATT Status: \(attStatusDescription(att))"
+            }
+            statusText = text
         }
     }
 
