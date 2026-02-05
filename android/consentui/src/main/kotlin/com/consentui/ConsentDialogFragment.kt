@@ -15,6 +15,12 @@ class ConsentDialogFragment : DialogFragment() {
 
     private var onResultCallback: ((Boolean) -> Unit)? = null
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        // Prevent dismissal by back button or outside touch
+        isCancelable = false
+    }
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = AlertDialog.Builder(requireContext())
             .setTitle(R.string.consent_title)
@@ -29,6 +35,9 @@ class ConsentDialogFragment : DialogFragment() {
                 onResultCallback?.invoke(false)
             }
             .create()
+
+        // Prevent dismissal by touching outside the dialog
+        dialog.setCanceledOnTouchOutside(false)
 
         dialog.setOnShowListener {
             // Style the Allow button - bold and blue
